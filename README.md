@@ -13,9 +13,7 @@ GTerm simplifies tracking gaming news, prices, and stats directly from your term
 ## Tools Used
 
 - [Typer](https://typer.tiangolo.com/) - Is a library for building CLI applications that users will love using and developers will love creating. Based on Python type hints.
-- Rawg API - Video Game Database
-    - [Rapid API Docs](https://rapidapi.com/accujazz/api/rawg-video-games-database)
-    - [RAWG.io - main website](https://rawg.io/)
+- [Rawg API - Video Game Database](https://rawg.io/apidocs)
 - [requests](https://requests.readthedocs.io/en/latest/)
 - [requests-cache](https://requests-cache.readthedocs.io/en/stable/index.html)
 - [dotenv](https://github.com/theskumar/python-dotenv)
