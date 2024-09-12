@@ -1,7 +1,6 @@
 import os
-from dotenv import load_dotenv
 from datetime import timedelta
-import requests
+from dotenv import load_dotenv
 import requests_cache
 import models
 
