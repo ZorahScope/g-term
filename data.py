@@ -16,12 +16,19 @@ base_params = {
 }
 
 
-def query_rawg_api(keyword: str, endpoint: str = "/games"):
+def search_games(keyword: str, filter: dict = {}):
     """Queries KEYWORD from RAWG API"""
+    ENDPOINT = "/games"
     new_params = {"search": f"{keyword}"}
     new_params.update(base_params)
-    response = rawg_session.get(RAWG_URL + endpoint, params=new_params)
-    return response
+    return rawg_session.get(RAWG_URL + ENDPOINT, params=new_params)
+
+
+def list_parent_platforms(page: int = 1, page_size: int = 10, ordering: str = ""):
+    ENDPOINT = "/platforms/lists/parents"
+    params = {ordering: ordering, page: page, page_size: page_size}
+    params.update(base_params)
+    return rawg_session.get(RAWG_URL + ENDPOINT, params=params)
 
 
 def clear_cache():

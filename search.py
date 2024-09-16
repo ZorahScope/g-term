@@ -32,13 +32,12 @@ def game(
         return
 
     if raw_json:
-        paginate(data.query_rawg_api(keyword).json())
+        paginate(data.search_games(keyword).json())
 
-    search_results = data.query_rawg_api(keyword).json()
+    search_results = data.search_games(keyword).json()
     print(data.transform(search_results))
     # replace print above with interactive interface
     # navigate search results, select game for more info, or request next page
-
 
 
 def filter():
@@ -53,3 +52,7 @@ def paginate(text):
     with console.pager():
         console.print(text)
     return
+
+
+if __name__ == "__main__":
+    app()
