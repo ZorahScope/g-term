@@ -21,14 +21,14 @@ def search_games(keyword: str, filter: dict = {}):
     ENDPOINT = "/games"
     new_params = {"search": f"{keyword}"}
     new_params.update(base_params)
-    return rawg_session.get(RAWG_URL + ENDPOINT, params=new_params)
+    return rawg_session.get(RAWG_URL + ENDPOINT, params=new_params).json()
 
 
 def list_parent_platforms(page: int = 1, page_size: int = 10, ordering: str = ""):
     ENDPOINT = "/platforms/lists/parents"
     params = {ordering: ordering, page: page, page_size: page_size}
     params.update(base_params)
-    return rawg_session.get(RAWG_URL + ENDPOINT, params=params)
+    return rawg_session.get(RAWG_URL + ENDPOINT, params=params).json()
 
 
 def clear_cache():

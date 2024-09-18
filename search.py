@@ -32,9 +32,9 @@ def game(
         return
 
     if raw_json:
-        paginate(data.search_games(keyword).json())
+        paginate(data.search_games(keyword))
 
-    search_results = data.search_games(keyword).json()
+    search_results = data.search_games(keyword)
     print(data.transform(search_results))
     # replace print above with interactive interface
     # navigate search results, select game for more info, or request next page
