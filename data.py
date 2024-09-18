@@ -24,11 +24,31 @@ def search_games(keyword: str, filter: dict = {}):
     return rawg_session.get(RAWG_URL + ENDPOINT, params=new_params).json()
 
 
-def list_parent_platforms(page: int = 1, page_size: int = 10, ordering: str = ""):
-    ENDPOINT = "/platforms/lists/parents"
+def list_platforms(
+    parent: bool, page: int = 1, page_size: int = 10, ordering: str = ""
+):
+    """return list of parent or child platforms"""
+    ENDPOINT = "/platforms/lists/parents" if parent else "/platforms"
     params = {ordering: ordering, page: page, page_size: page_size}
     params.update(base_params)
     return rawg_session.get(RAWG_URL + ENDPOINT, params=params).json()
+
+
+def list_endpoint(endpoint, page: int = 1, page_size: int = 10, ordering: str = ""):
+    """returns list from designated endpoint"""
+    params = {ordering: ordering, page: page, page_size: page_size}
+    params.update(base_params)
+    return rawg_session.get(RAWG_URL + endpoint, params=params).json()
+
+
+def get_details(id: int, endpoint: str):
+    """return details on ID from ENDPOINT"""
+    pass
+
+
+def next_page(url: str):
+    """requests next page of search/list results"""
+    pass
 
 
 def clear_cache():
